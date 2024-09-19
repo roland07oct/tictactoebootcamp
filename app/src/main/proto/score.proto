@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_package = "com.company.tictactoebootcamp";
+option java_multiple_files = true;
+
+message ScoreItem {
+    int32 id = 1;
+    string name = 2;
+    bool isSuccessful = 3;
+}
+
+message ScoreItems {
+    repeated ScoreItem scores = 1;
+}

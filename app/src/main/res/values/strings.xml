@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TicTacToeBootcamp</string>
+    <string name="button_reset">New Game</string>
+    <string name="developer_name">Roland Simionas</string>
+    <string name="game_btn_label">Game</string>
+    <string name="history_btn_label">History</string>
+    <string name="about_btn_label">About</string>
+    <string name="player_hint">Your name</string>
+    <string name="save_hint">Save</string>
+
+</resources>
