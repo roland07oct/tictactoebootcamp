@@ -2,7 +2,6 @@ package com.company.tictactoebootcamp.ui.game
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,7 @@ import com.company.tictactoebootcamp.data.model.BoardState
 import com.company.tictactoebootcamp.data.model.Cell
 import com.company.tictactoebootcamp.databinding.FragmentGameBinding
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+
 
 @AndroidEntryPoint
 class GameFragment : Fragment() {
