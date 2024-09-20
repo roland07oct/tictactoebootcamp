@@ -4,4 +4,4 @@ The app is based on:
 ** Android App Architecture based on MVVM
 ** LiveData for UI links and RxJava for the game logic - was mandatory
 ** XML / Compose was optional
-GameLogic is separately out of the ViewModels
+** GameLogic is separately out of the ViewModels
