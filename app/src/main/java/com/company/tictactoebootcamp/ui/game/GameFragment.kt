@@ -25,7 +25,6 @@ class GameFragment : Fragment() {
     private val binding get() = _binding!!
     private val gameViewModel: GameViewModel by viewModels()
     private var playerName = ""
-    private val compositeDisposable = CompositeDisposable()
     private var gameFinished : Boolean = false
 
     override fun onCreateView(
@@ -36,22 +35,21 @@ class GameFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("CheckResult", "SetTextI18n")
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         playerName = arguments?.getString("playerName").toString()
         bindClickEvents()
         binding.textPlayer.text = "$playerName:"
-        // Subscribe to the board observable using RxJava
-        gameViewModel.board
-            .observeOn(AndroidSchedulers.mainThread()) // Ensure updates are handled on the main thread
-            .subscribe { board ->
-                if(!gameFinished) {
-                    updateBoard(board)
-                } else {
-                    gameFinished = false
-                }
+
+        // Observe the boardLiveData from ViewModel
+        gameViewModel.boardLiveData.observe(viewLifecycleOwner) { board ->
+            if (!gameFinished) {
+                updateBoard(board)
+            } else {
+                gameFinished = false
             }
+        }
 
         gameViewModel.scorePlayerLiveData.observe(viewLifecycleOwner) { scorePlayer ->
             // Update UI with the new score
@@ -104,7 +102,6 @@ class GameFragment : Fragment() {
     }
 
     private fun setupBoard(disable: Boolean = false) {
-        // Enable or disable board based on game state
         val squares = listOf(
             binding.square0, binding.square1, binding.square2,
             binding.square3, binding.square4, binding.square5,
@@ -154,8 +151,7 @@ class GameFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Clear RxJava subscriptions to avoid memory leaks
-        compositeDisposable.clear()
+        _binding = null
     }
 
 }
