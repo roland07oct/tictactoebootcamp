@@ -1,4 +1,4 @@
-This a small app, a small TicTacToe game, created during a bootcamp session in which we have reiterate Android and Kotlin fundamentals.
+This a small app, a small TicTacToe game, created during a bootcamp session in which we have reiterated Android and Kotlin fundamentals.
 The app is based on:
 ** Kotlin
 ** Android App Architecture based on MVVM
